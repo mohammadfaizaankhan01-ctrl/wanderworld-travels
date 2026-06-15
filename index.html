@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WanderWorld Travels</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>WanderWorld Travels</h1>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <img id="slider" src="images/travel.jpg" alt="Travel">
+
+    <h2>Explore The World With Us</h2>
+    <p>Discover breathtaking destinations</p>
+
+    <div class="search-bar">
+        <div class="search-field">
+            <label>Destination</label>
+            <select id="heroDestination">
+                <option value="">Where to?</option>
+                <option value="Goa">Goa</option>
+                <option value="Manali">Manali</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Kashmir">Kashmir</option>
+            </select>
+        </div>
+
+        <div class="search-field">
+            <label>Travel Date</label>
+            <input type="date" id="heroDate">
+        </div>
+
+        <div class="search-field">
+            <label>Travelers</label>
+            <input type="number" id="heroTravelers" min="1" value="1">
+        </div>
+
+        <button class="search-btn" onclick="goToBooking()">Search</button>
+    </div>
+</section>
+<section class="stats">
+    <div class="stat">
+        <h3>500+</h3>
+        <p>Destinations</p>
+    </div>
+    <div class="stat">
+        <h3>50K+</h3>
+        <p>Happy Travelers</p>
+    </div>
+    <div class="stat">
+        <h3>24/7</h3>
+        <p>Customer Support</p>
+    </div>
+    <div class="stat">
+        <h3>4.8★</h3>
+        <p>Average Rating</p>
+    </div>
+</section>
+
+
+<section class="about">
+    <h2>Why Choose Us?</h2>
+
+    <div class="cards">
+
+      <div class="feature-card">
+    <img src="images/tour.jpg" alt="Affordable Tours">
+
+    <h3>Affordable Tours</h3>
+    <p>Best travel packages at budget-friendly prices.</p>
+</div>
+
+        <div class="feature-card">
+    <img src="images/world.jpg" alt="Global Destinations">
+
+    <h3>Global Destinations</h3>
+    <p>Explore beaches, mountains, cities and more.</p>
+         </div>
+
+        <div class="feature-card">
+    <img src="images/support.jpg" alt="24/7 Support">
+
+    <h3>24/7 Support</h3>
+    <p>Our team is always ready to help travelers.</p>
+         </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Dream Travel. Explore the World with Us ✈️</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
