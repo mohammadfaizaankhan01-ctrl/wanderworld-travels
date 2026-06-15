@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Success</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Booking Confirmed ✅</h1>
+</header>
+
+<section class="booking-info">
+    <p>Booking ID: WWT2026001</p>
+    <p>Thank you for choosing WanderWorld Travels.</p>
+
+    <div class="reservation-card">
+        <h3>My reservation</h3>
+
+        <img id="hotelImg" class="reservation-img" src="images/hotel-room.jpg" alt="Hotel Room">
+
+        <h2 id="hotelName">Hotel Name</h2>
+
+        <p>📍 <span id="hotelAddress">Lakecity Mall, Ashok Nagar Main Road</span></p>
+        <p>📞 +91 294 6603333</p>
+
+        <p><strong>Duration:</strong> 1 night</p>
+        <p><strong>Occupancy:</strong> <span id="occupancy">2 adults</span></p>
+        <p><strong>Check-in:</strong> <span id="checkin"></span> - 14:00 PM</p>
+        <p><strong>Check-out:</strong> <span id="checkout"></span> - 12:00 PM</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 WanderWorld Travels</p>
+</footer>
+
+<script>
+const data = JSON.parse(localStorage.getItem("bookingData"));
+
+if(data){
+    document.getElementById("hotelName").innerText = data.hotel || "Hotel";
+    document.getElementById("occupancy").innerText = (data.travelers || "1") + " traveler(s)";
+    document.getElementById("checkin").innerText = data.date || "—";
+}
+
+setTimeout(() => {
+    window.location.href = "index.html";
+}, 5000);
+</script>
+
+</body>
+</html>
