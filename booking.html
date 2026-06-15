@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Booking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Complete Your Booking</h1>
+</header>
+
+<section class="booking-section">
+
+<form id="bookingForm">
+
+<h2>Traveler Details</h2>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number" required>
+
+<input type="number" placeholder="Number of Travelers" required>
+
+<h2>Travel Details</h2>
+
+<input type="date" required>
+
+<select required>
+<option>Select Destination</option>
+<option>Goa</option>
+<option>Manali</option>
+<option>Kerala</option>
+<option>Kashmir</option>
+</select>
+
+<h2>Ride Booking</h2>
+
+<select required>
+<option>Select Ride</option>
+<option>Airport Pickup</option>
+<option>Private Taxi</option>
+<option>Luxury Cab</option>
+<option>Tour Bus</option>
+</select>
+
+<h2>Hotel Selection</h2>
+
+<select required>
+<option>Select Hotel</option>
+<option>Taj Resort ★★★★★</option>
+<option>Holiday Inn ★★★★</option>
+<option>Grand Palace ★★★★★</option>
+</select>
+
+<h2>Meals</h2>
+
+<select required>
+<option>Select Meal Plan</option>
+<option>Breakfast Only</option>
+<option>Breakfast + Dinner</option>
+<option>All Meals Included</option>
+</select>
+
+<h2>Payment</h2>
+
+<select required>
+<option>Select Payment Method</option>
+<option>UPI</option>
+<option>Credit Card</option>
+<option>Debit Card</option>
+<option>Net Banking</option>
+</select>
+
+<button type="submit">
+Confirm Booking
+</button>
+
+</form>
+
+</section>
+
+<section class="hotel-info">
+
+<h2>Recommended Hotels</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="images/taj.jpg" alt="Taj Resort">
+
+<h3>Taj Resort</h3>
+
+<p>★★★★★</p>
+
+<p>Free Breakfast</p>
+
+<p>Swimming Pool</p>
+
+<p>Airport Pickup</p>
+
+</div>
+
+<div class="card">
+
+<img src="images/holidayinn.jpg" alt="Holiday Inn">
+
+<h3>Holiday Inn</h3>
+
+<p>★★★★★</p>
+
+<p>Free Breakfast</p>
+
+<p>Swimming Pool</p>
+
+<p>Airport Pickup</p>
+
+</div>
+
+<div class="card">
+
+<img src="images/Grandplace.jpg" alt="Grandplace">
+
+<h3>Grandplace</h3>
+
+<p>★★★★★</p>
+
+<p>Free Breakfast</p>
+
+<p>Swimming Pool</p>
+
+<p>Airport Pickup</p>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 WanderWorld Travels</p>
+</footer>
+
+<script>
+    document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const inputs = document.querySelectorAll("#bookingForm input, #bookingForm select");
+    const data = {
+        name: inputs[0].value,
+        email: inputs[1].value,
+        phone: inputs[2].value,
+        travelers: inputs[3].value,
+        date: inputs[4].value,
+        destination: inputs[5].value,
+        ride: inputs[6].value,
+        hotel: inputs[7].value,
+        meal: inputs[8].value,
+        payment: inputs[9].value
+    };
+
+    localStorage.setItem("bookingData", JSON.stringify(data));
+    window.location.href = "payment.html";
+});
+
+
+
+</script>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+    const pre = JSON.parse(localStorage.getItem("preselect"));
+    if(pre){
+        const inputs = document.querySelectorAll("#bookingForm input, #bookingForm select");
+        if(pre.date) inputs[4].value = pre.date;
+        if(pre.travelers) inputs[3].value = pre.travelers;
+        if(pre.dest){
+            const destSelect = inputs[5];
+            for(let opt of destSelect.options){
+                if(opt.value === pre.dest) opt.selected = true;
+            }
+        }
+        localStorage.removeItem("preselect");
+    }
+});
+</script>
+
+</body>
+</html>
