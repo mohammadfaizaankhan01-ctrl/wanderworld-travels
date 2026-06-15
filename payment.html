@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Payment</h1>
+</header>
+
+<section class="booking-info">
+    <h2>Confirm & Pay</h2>
+    <p id="summary"></p>
+    <button class="book-btn" onclick="makePayment()">Pay Now</button>
+</section>
+
+<!-- Phone message popup -->
+<div class="phone-popup" id="phonePopup">
+    <div class="phone-frame">
+        <div class="phone-header">Hotel Booking</div>
+        <div class="phone-message">
+            <p id="messageText"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+const data = JSON.parse(localStorage.getItem("bookingData"));
+
+if(data){
+    document.getElementById("summary").innerText =
+        `${data.name}, your ${data.hotel} booking for ${data.destination} on ${data.date} (${data.travelers} traveler(s)) is ready for payment.`;
+}
+
+function makePayment(){
+    const popup = document.getElementById("phonePopup");
+    const msg = document.getElementById("messageText");
+
+    msg.innerText = `Hi ${data.name}, your booking at ${data.hotel} for ${data.destination} has been confirmed for ${data.date}. Check-in time will be 2:00 PM. Enjoy your trip!`;
+
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        window.location.href = "success.html";
+    }, 3500);
+}
+</script>
+
+</body>
+</html>
